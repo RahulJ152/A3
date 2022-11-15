@@ -19,6 +19,12 @@ public class Employee {
         this.uid = getNextId();
     }
 
+    public Employee(String first, String last, double wage, int hours) {
+        this.wage = wage;
+        this.hours = hours;
+        this.uid = getNextId();
+    }
+
     /* Getters */
     public double getWage() {
         return this.wage;
@@ -32,8 +38,22 @@ public class Employee {
         return this.uid;
     }
 
+    /* Setters */
+    public void setWage(double wage) {
+        this.wage = wage;
+    }
+
+    public void setWage(int hours) {
+        this.hours = hours;
+    }
+
     /* Other Methods */
     private int getNextId() {
         return nextUid++;
+    }
+
+    @Override
+    public String toString() {
+        return "";
     }
 }
