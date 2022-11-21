@@ -1,10 +1,14 @@
 public class Employee {
 
+    private static final int OVERTIME_SART = 40;
+    private static final double OVERTIME_MULTIPLIER = 1.5;
+    
     private static int nextUid = 1000;
 
     private int uid;
     private double wage;
     private int hours;
+
 
     /* Constructors */
     public Employee() {
@@ -45,6 +49,18 @@ public class Employee {
 
     public void setWage(int hours) {
         this.hours = hours;
+    }
+
+    /* Utility and Calculation Methods */
+    public double getRegularPay() {
+        return (this.wage * (this.hours % OVERTIME_SART));
+    }
+    
+    public double getOvertimePay() {
+        if (this.hours > OVERTIME_SART) {
+            return (this.wage * OVERTIME_MULTIPLIER) * (this.hours-OVERTIME_SART);
+        }
+        return 0.0;
     }
 
     /* Other Methods */
